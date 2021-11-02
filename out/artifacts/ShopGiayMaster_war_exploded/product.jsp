@@ -78,7 +78,7 @@
 
     <div class="box-container">
 
-        <c:forEach items="images/${product}" var="pro">
+        <c:forEach items="${product}" var="pro">
             <div class="box">
                 <div class="image">
                     <img src="${pro.image}" alt="">

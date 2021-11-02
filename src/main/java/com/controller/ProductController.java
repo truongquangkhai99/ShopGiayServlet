@@ -22,9 +22,6 @@ public class ProductController extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
         String url;
         url = "/product.jsp";
-//        ProductDao productDao = new ProductDao();
-//        List<ProductEntity> product = productDao.getListProduct();
-//        request.setAttribute("product", product);
         ProductDao productDao = new ProductDao();
         List<ProductEntity> product = productDao.getListProduct();
         request.setAttribute("product", product);
