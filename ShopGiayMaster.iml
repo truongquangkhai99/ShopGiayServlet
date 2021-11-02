@@ -20,6 +20,7 @@
         <setting name="validation-enabled" value="true" />
         <setting name="provider-name" value="Hibernate" />
         <datasource-mapping>
+          <factory-entry name="ShopGiayMaster" />
           <factory-entry name="default" value="4ff7225a-a703-4cb1-afc0-11e5cd396f0e" />
         </datasource-mapping>
         <naming-strategy-map />
