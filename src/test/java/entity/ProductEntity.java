@@ -1,15 +1,19 @@
-package pojo;
+package entity;
 
 import javax.persistence.*;
 
 @Entity
-@Table(name = "product", schema = "shopgiaymaster", catalog = "")
+@Table(name = "product", schema = "shoe_db", catalog = "")
 public class ProductEntity {
     private int id;
     private String name;
     private String desciption;
     private Double price;
     private String image;
+    private String title;
+    private Integer saleId;
+    private String description;
+    private Integer cateId;
 
     @Id
     @Column(name = "id")
@@ -61,6 +65,26 @@ public class ProductEntity {
         this.image = image;
     }
 
+    @Basic
+    @Column(name = "title")
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    @Basic
+    @Column(name = "sale_ID")
+    public Integer getSaleId() {
+        return saleId;
+    }
+
+    public void setSaleId(Integer saleId) {
+        this.saleId = saleId;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -73,6 +97,8 @@ public class ProductEntity {
         if (desciption != null ? !desciption.equals(that.desciption) : that.desciption != null) return false;
         if (price != null ? !price.equals(that.price) : that.price != null) return false;
         if (image != null ? !image.equals(that.image) : that.image != null) return false;
+        if (title != null ? !title.equals(that.title) : that.title != null) return false;
+        if (saleId != null ? !saleId.equals(that.saleId) : that.saleId != null) return false;
 
         return true;
     }
@@ -84,6 +110,28 @@ public class ProductEntity {
         result = 31 * result + (desciption != null ? desciption.hashCode() : 0);
         result = 31 * result + (price != null ? price.hashCode() : 0);
         result = 31 * result + (image != null ? image.hashCode() : 0);
+        result = 31 * result + (title != null ? title.hashCode() : 0);
+        result = 31 * result + (saleId != null ? saleId.hashCode() : 0);
         return result;
+    }
+
+    @Basic
+    @Column(name = "description")
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    @Basic
+    @Column(name = "cateID")
+    public Integer getCateId() {
+        return cateId;
+    }
+
+    public void setCateId(Integer cateId) {
+        this.cateId = cateId;
     }
 }

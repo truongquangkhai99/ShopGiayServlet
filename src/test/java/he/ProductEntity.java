@@ -1,9 +1,9 @@
-package com.entities;
+package he;
 
 import javax.persistence.*;
 
 @Entity
-@Table(name = "product", schema = "shoe_db")
+@Table(name = "product", schema = "shoe_db", catalog = "")
 public class ProductEntity {
     private int id;
     private String name;

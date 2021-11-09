@@ -79,6 +79,7 @@
     <div class="box-container">
 
         <c:forEach items="${product}" var="pro">
+            <form method="POST" action="CartController">
             <div class="box">
                 <div class="image">
                     <img src="${pro.image}" alt="">
@@ -94,200 +95,17 @@
                         <i class="fas fa-star-half-alt"></i>
                     </div>
                     <h3>${pro.name}</h3>
+                    <input type="hidden" name="description" value="${pro.name}"><br/>
+                    <input type="number" name="quantity" value="1"><br/>
+                    <input type="hidden" name="price" value="${pro.price}"><br/>
                     <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Excepturi, accusantium.</p>
-                    <a href="#" class="btn">add to cart</a>
-                    <span class="price">$12.99</span>
+<%--                    <a href="<c:url value = "/CartController"/>" class="btn">add to cart</a>--%>
+                    <span class="price">$ ${pro.price}</span>
+                    <input type="submit" name="action" value="Add To Cart" style="background: green">
                 </div>
             </div>
+            </form>
         </c:forEach>
-        <div class="box">
-            <div class="image">
-                <img src="images/product-1.jpg" alt="">
-                <a href="#" class="fas fa-heart"></a>
-                <a href="<c:url value = "/detailproduct.jsp"/>" class="fas fa-eye"></a>
-            </div>
-            <div class="content">
-                <div class="stars">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star-half-alt"></i>
-                </div>
-                <h3 data-toggle="dropdown">Ten</h3>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Excepturi, accusantium.</p>
-                <a href="#" class="btn">add to cart</a>
-                <span class="price">$12.99</span>
-            </div>
-        </div>
-
-        <div class="box">
-            <div class="image">
-                <img src="images/product-6.jpeg" alt="">
-                <a href="#" class="fas fa-heart"></a>
-                <a href="<c:url value = "/detailproduct.jsp"/>" class="fas fa-eye"></a>
-            </div>
-            <div class="content">
-                <div class="stars">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star-half-alt"></i>
-                </div>
-                <h3>Name Product</h3>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Excepturi, accusantium.</p>
-                <a href="#" class="btn">add to cart</a>
-                <span class="price">$12.99</span>
-            </div>
-        </div>
-
-        <div class="box">
-            <div class="image">
-                <img src="images/product-7.jpg" alt="">
-                <a href="#" class="fas fa-heart"></a>
-                <a href="<c:url value = "/detailproduct.jsp"/>" class="fas fa-eye"></a>
-            </div>
-            <div class="content">
-                <div class="stars">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star-half-alt"></i>
-                </div>
-                <h3>Name Product</h3>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Excepturi, accusantium.</p>
-                <a href="#" class="btn">add to cart</a>
-                <span class="price">$12.99</span>
-            </div>
-        </div>
-
-        <div class="box">
-            <div class="image">
-                <img src="images/product-8.jpeg" alt="">
-                <a href="#" class="fas fa-heart"></a>
-                <a href="<c:url value = "/detailproduct.jsp"/>" class="fas fa-eye"></a>
-            </div>
-            <div class="content">
-                <div class="stars">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star-half-alt"></i>
-                </div>
-                <h3>Name Product</h3>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Excepturi, accusantium.</p>
-                <a href="#" class="btn">add to cart</a>
-                <span class="price">$12.99</span>
-            </div>
-        </div>
-
-        <div class="box">
-            <div class="image">
-                <img src="images/product-9.jpg" alt="">
-                <a href="#" class="fas fa-heart"></a>
-                <a href="<c:url value = "/detailproduct.jsp"/>" class="fas fa-eye"></a>
-            </div>
-            <div class="content">
-                <div class="stars">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star-half-alt"></i>
-                </div>
-                <h3>Name Product</h3>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Excepturi, accusantium.</p>
-                <a href="#" class="btn">add to cart</a>
-                <span class="price">$12.99</span>
-            </div>
-        </div>
-
-        <div class="box">
-            <div class="image">
-                <img src="images/product-11.jpg" alt="">
-                <a href="#" class="fas fa-heart"></a>
-                <a href="<c:url value = "/detailproduct.jsp"/>" class="fas fa-eye"></a>
-            </div>
-            <div class="content">
-                <div class="stars">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star-half-alt"></i>
-                </div>
-                <h3>Name Product</h3>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Excepturi, accusantium.</p>
-                <a href="#" class="btn">add to cart</a>
-                <span class="price">$12.99</span>
-            </div>
-        </div>
-
-        <div class="box">
-            <div class="image">
-                <img src="images/product-12.jpg" alt="">
-                <a href="#" class="fas fa-heart"></a>
-                <a href="<c:url value = "/detailproduct.jsp"/>" class="fas fa-eye"></a>
-            </div>
-            <div class="content">
-                <div class="stars">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star-half-alt"></i>
-                </div>
-                <h3>Name Product</h3>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Excepturi, accusantium.</p>
-                <a href="#" class="btn">add to cart</a>
-                <span class="price">$12.99</span>
-            </div>
-        </div>
-
-        <div class="box">
-            <div class="image">
-                <img src="images/product-13.jpg" alt="">
-                <a href="#" class="fas fa-heart"></a>
-                <a href="<c:url value = "/detailproduct.jsp"/>" class="fas fa-eye"></a>
-            </div>
-            <div class="content">
-                <div class="stars">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star-half-alt"></i>
-                </div>
-                <h3>Name Product</h3>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Excepturi, accusantium.</p>
-                <a href="#" class="btn">add to cart</a>
-                <span class="price">$12.99</span>
-            </div>
-        </div>
-
-        <div class="box">
-            <div class="image">
-                <img src="images/product-14.jpg" alt="">
-                <a href="#" class="fas fa-heart"></a>
-                <a href="<c:url value = "/detailproduct.jsp"/>" class="fas fa-eye"></a>
-            </div>
-            <div class="content">
-                <div class="stars">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star-half-alt"></i>
-                </div>
-                <h3>Name Product</h3>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Excepturi, accusantium.</p>
-                <a href="#" class="btn">add to cart</a>
-                <span class="price">$12.99</span>
-            </div>
-        </div>
 
     </div>
 
