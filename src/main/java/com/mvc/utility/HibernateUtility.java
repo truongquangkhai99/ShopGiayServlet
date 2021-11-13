@@ -21,14 +21,15 @@ public class HibernateUtility {
         pros.put(Environment.DRIVER, "com.mysql.cj.jdbc.Driver");
         pros.put(Environment.URL, "jdbc:mysql://localhost:3306/shopgiaymaster");
         pros.put(Environment.USER, "root");
-        pros.put(Environment.PASS, "ngolokante3");
+//        pros.put(Environment.PASS, "ngolokante3");
+        pros.put(Environment.PASS, "11111111");
 
         conf.setProperties(pros);
-        conf.addAnnotatedClass(KhachEntity.class);
+//        conf.addAnnotatedClass(KhachEntity.class);
         conf.addAnnotatedClass(CategoryEntity.class);
         conf.addAnnotatedClass(ProductEntity.class);
         ServiceRegistry registry = new StandardServiceRegistryBuilder().applySettings(conf.getProperties()).build();
-        FACTORY = conf.buildSessionFactory();
+        FACTORY = conf.buildSessionFactory(registry);
     }
 
     public static SessionFactory getSessionFactory() {

@@ -1,19 +1,24 @@
 package com.entities;
 
 import javax.persistence.*;
-import java.io.Serializable;
+import java.math.BigDecimal;
 
 @Entity
 @Table(name = "product", schema = "shopgiaymaster")
 public class ProductEntity {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
     private String desciption;
-    private Double price;
+    private Float price;
     private String image;
 
-    @Id
-    @Column(name = "id")
+    @ManyToOne // lấy product thì lấy category luôn
+    @JoinColumn(name = "category_id")
+    private CategoryEntity category;
+
+
     public int getId() {
         return id;
     }
@@ -22,8 +27,7 @@ public class ProductEntity {
         this.id = id;
     }
 
-    @Basic
-    @Column(name = "name")
+
     public String getName() {
         return name;
     }
@@ -32,8 +36,7 @@ public class ProductEntity {
         this.name = name;
     }
 
-    @Basic
-    @Column(name = "desciption")
+
     public String getDesciption() {
         return desciption;
     }
@@ -42,18 +45,9 @@ public class ProductEntity {
         this.desciption = desciption;
     }
 
-    @Basic
-    @Column(name = "price")
-    public Double getPrice() {
-        return price;
-    }
 
-    public void setPrice(Double price) {
-        this.price = price;
-    }
 
-    @Basic
-    @Column(name = "image")
+
     public String getImage() {
         return image;
     }
@@ -61,6 +55,25 @@ public class ProductEntity {
     public void setImage(String image) {
         this.image = image;
     }
+
+
+
+    public CategoryEntity getCategory() {
+        return category;
+    }
+
+    public void setCategory(CategoryEntity category) {
+        this.category = category;
+    }
+
+    public Float getPrice() {
+        return price;
+    }
+
+    public void setPrice(Float price) {
+        this.price = price;
+    }
+
 
 //    @Override
 //    public boolean equals(Object o) {
