@@ -12,7 +12,7 @@
 </head>
 <body>
     <h1>Them San Pham</h1>
-    <form action="Login1" method="post">
+    <form action="insert" method="post">
 
 
         <label>name</label>

@@ -11,7 +11,7 @@ import javax.servlet.annotation.*;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(name = "ProductAdminC", urlPatterns = {"/Login1"})
+@WebServlet(name = "ProductAdminC", urlPatterns = {"/load", "/insert"})
 public class ProductAdminC extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -47,7 +47,6 @@ public class ProductAdminC extends HttpServlet {
         ProductDao productDao = new ProductDao();
         List<ProductEntity> pros = productDao.getProduct();
         request.setAttribute("products", pros);
-        pros.forEach(c -> System.out.println(c.getName()));
 
         RequestDispatcher rd = request.getRequestDispatcher("/managerProduct.jsp");
         rd.forward(request, response);
@@ -62,37 +61,55 @@ public class ProductAdminC extends HttpServlet {
 
 
 //        ProductEntity product = new ProductEntity();
-
+        Integer id = Integer.parseInt(request.getParameter("pid"));
         ProductDao productDao = new ProductDao();
-        productDao.deleteProduct(9);
+        productDao.deleteProduct(id);
 
-        RequestDispatcher rd = request.getRequestDispatcher("/managerProduct.jsp");
-        rd.forward(request, response);
+//        getlistRequest(request,response);
+//        response.sendRedirect("load");
+//        RequestDispatcher rd = request.getRequestDispatcher("/managerProduct.jsp");
+//        rd.forward(request, response);
 
     }
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//        processRequest(request, response);
         getlistRequest(request,response);
         deleteRequest(request,response);
+
+//        String iAction = request.getParameter("action");
+//
+//        if (iAction != null && !iAction.equals("")) {
+//            if (iAction.equals("delete")) {
+//                deleteRequest(request,response);
+//                response.sendRedirect("load");
+//            } else if (iAction.equals("Update")) {
+////                updateCart(request);
+//            } else if (iAction.equals("Delete")) {
+////                deleteCart(request);
+//            }
+//        }
+//        response.sendRedirect("managerProduct.jsp");
+
+
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//        processRequest(request, response);
+        processRequest(request, response);
         getlistRequest(request,response);
-        String iAction = request.getParameter("action");
-
-        if (iAction != null && !iAction.equals("")) {
-            if (iAction.equals("delete")) {
-                deleteRequest(request,response);
-            } else if (iAction.equals("Update")) {
-//                updateCart(request);
-            } else if (iAction.equals("Delete")) {
-//                deleteCart(request);
-            }
-        }
-        response.sendRedirect("managerProduct.jsp");
+//        String iAction = request.getParameter("action");
+//
+//        if (iAction != null && !iAction.equals("")) {
+//            if (iAction.equals("delete")) {
+//                deleteRequest(request,response);
+//            } else if (iAction.equals("Update")) {
+////                updateCart(request);
+//            } else if (iAction.equals("Delete")) {
+////                deleteCart(request);
+//            }
+//        }
+//        response.sendRedirect("managerProduct.jsp");
+        getlistRequest(request,response);
     }
 }
