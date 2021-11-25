@@ -10,12 +10,13 @@ public class ProductEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
-    private String desciption;
-    private Float price;
+    private String description;
+    private Double price;
+    private String title;
     private String image;
 
     @ManyToOne // lấy product thì lấy category luôn
-    @JoinColumn(name = "category_id")
+    @JoinColumn(name = "cateID")
     private CategoryEntity category;
 
 
@@ -37,17 +38,6 @@ public class ProductEntity {
     }
 
 
-    public String getDesciption() {
-        return desciption;
-    }
-
-    public void setDesciption(String desciption) {
-        this.desciption = desciption;
-    }
-
-
-
-
     public String getImage() {
         return image;
     }
@@ -66,12 +56,28 @@ public class ProductEntity {
         this.category = category;
     }
 
-    public Float getPrice() {
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public Double getPrice() {
         return price;
     }
 
-    public void setPrice(Float price) {
+    public void setPrice(Double price) {
         this.price = price;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 
 

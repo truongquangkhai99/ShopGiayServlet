@@ -7,11 +7,13 @@ import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
 
-@WebServlet(name = "ControProductD", value = "/delete")
-public class ControProductD extends HttpServlet {
+@WebServlet(name = "ServletDelete", urlPatterns ={"/ServletDelete"} )
+public class ServletDelete extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Integer id = Integer.parseInt(request.getParameter("pid"));
+        System.out.println(id);
+
         ProductDao productDao = new ProductDao();
         productDao.deleteProduct(id);
 

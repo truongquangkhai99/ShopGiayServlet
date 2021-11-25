@@ -12,7 +12,7 @@
 </head>
 <body>
     <h1>Them San Pham</h1>
-    <form action="insert" method="post">
+    <form action="creatP" method="post">
 
 
         <label>name</label>
